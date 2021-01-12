@@ -18,11 +18,7 @@ Output: "bb"
 */
 
 func main() {
-	s := "babad"
-	s = "cbbd"
-	s = "forgeeksskeegfor"
-	s = "Geeks"
-	s = "ccc"
+	s := "ccc"
 	fmt.Println(longestPalindrome(s))
 }
 
@@ -43,14 +39,13 @@ func longestPalindrome(s string) string {
 	}
 	for i := 0; i < len(s); i++ {
 		dp[i][i] = 1
-		if i+1 < len(s) {
-			if i+1 < len(s) && s[i] == s[i+1] {
-				dp[i][i+1] = 1
-				maxLen = 2
-				ss = s[i : i+maxLen]
-			}
+		if i+1 < len(s) && s[i] == s[i+1] {
+			dp[i][i+1] = 1
+			maxLen = 2
+			ss = s[i : i+maxLen]
 		}
 	}
+
 	for j := 2; j < len(s); j++ {
 		for i := 0; i < len(s)-j; i++ {
 			if i+j < len(s) && s[i] == s[i+j] && dp[i+1][i+j-1] == 1 {
