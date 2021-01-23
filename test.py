@@ -86,7 +86,5 @@ root = flipBinaryTree(root)
 print("\nLevel order traversal of the flipped tree")
 printLevelOrder(root)
 
-# This code is contributed by Nikhil Kumar Singh(nickzuck_007)
-
 if __name__ == '__main__':
     pass

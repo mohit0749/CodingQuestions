@@ -33,7 +33,8 @@ func recurFindWord(board [][]byte, word string, charAt, i, j int) bool {
 func main() {
 	w := "ABCCED"
 	board := [][]byte{
-		{'A','B','C','E'},{'S','F','C','S'},{'A','D','E','E'},
+		{'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'},
 	}
+
 	println(exist(board, w))
 }
