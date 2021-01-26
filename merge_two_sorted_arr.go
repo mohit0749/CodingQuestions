@@ -32,17 +32,23 @@ func shellSort(arr1, arr2 []int) {
 	n1 := len(arr1)
 	n2 := len(arr2)
 	var gap int = (n1 + n2) / 2
-	var i int
 	for ; gap > 0; gap /= 2 {
+		i := 0
+		// println("gap ", gap)
 		for ; i+gap < len(arr1); i++ {
+			// println("in 1st loop")
+			// println("i+gap ", i+gap)
 			if arr1[i+gap] < arr1[i] {
 				arr1[i+gap], arr1[i] = arr1[i], arr1[i+gap]
 			}
 		}
 
 		for ; i < len(arr1); i++ {
-			if i+gap > len(arr1) {
-				j := (i + gap) - len(arr1) - 1
+			// println("in 2nd loop")
+			// println("i+gap ", i+gap)
+			if i+gap >= len(arr1) {
+				j := (i + gap) - len(arr1)
+				// println("j ", j)
 				if j > len(arr2) {
 					break
 				}
@@ -52,7 +58,8 @@ func shellSort(arr1, arr2 []int) {
 			}
 		}
 
-		for ; i+gap < len(arr2); i++ {
+		for i = 0; i+gap < len(arr2); i++ {
+			// println("in 3rd loop")
 			if arr2[i+gap] < arr2[i] {
 				arr2[i+gap], arr2[i] = arr2[i], arr2[i+gap]
 			}
