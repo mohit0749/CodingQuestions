@@ -1,40 +1,40 @@
 package main
 
-func exist(board [][]byte, word string) bool {
-	for i := 0; i < len(board); i++ {
-		for j := 0; j < len(board[i]); j++ {
-			if recurFindWord(board, word, 0, i, j) {
-				return true
+import "math"
+
+func kadane(arr []int) int {
+	sum := 0
+	maxSum := math.MinInt32
+	for i := 0; i < len(arr); i++ {
+		sum = sum + arr[i]
+		if sum < 0 {
+			sum = 0
+			if maxSum < arr[i] {
+
+				maxSum = arr[i]
 			}
+		} else if maxSum < sum {
+			maxSum = sum
 		}
+
 	}
-	return false
+	return maxSum
 }
 
-func recurFindWord(board [][]byte, word string, charAt, i, j int) bool {
-	if charAt >= len(word) {
-		return true
+func missingNumber(arr []int, n int) int {
+	sum := 0
+	for _, v := range arr {
+		sum += v
 	}
-
-	if i < 0 || j < 0 || i >= len(board) || j >= len(board[0]) || word[charAt] != board[i][j] {
-		return false
-	}
-
-	temp := board[i][j]
-	board[i][j] = '*'
-	ret := recurFindWord(board, word, charAt+1, i+1, j) ||
-		recurFindWord(board, word, charAt+1, i, j+1) ||
-		recurFindWord(board, word, charAt+1, i-1, j) ||
-		recurFindWord(board, word, charAt+1, i, j-1)
-	board[i][j] = temp
-	return ret
+	var triangle int = (n * (n + 1)) / 2
+	return triangle - sum
 }
 
 func main() {
-	w := "ABCCED"
-	board := [][]byte{
-		{'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'},
-	}
-
-	println(exist(board, w))
+	// arr := []int{-1, -2, -3, -4}
+	// arr := []int{1, 2, 3, -2, 5}
+	// arr := []int{1, 2, 3, 5}
+	arr := []int{1, 2, 3, 4, 5, 6, 7, 8, 10}
+	// println(kadane(arr))
+	println(missingNumber(arr, 10))
 }
