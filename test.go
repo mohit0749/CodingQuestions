@@ -1,6 +1,9 @@
 package main
 
-import "math"
+import (
+	"codes/src/treebuidler"
+	"math"
+)
 
 func kadane(arr []int) int {
 	sum := 0
@@ -29,12 +32,16 @@ func missingNumber(arr []int, n int) int {
 	var triangle int = (n * (n + 1)) / 2
 	return triangle - sum
 }
-
+func preoder(root *treebuidler.TreeNode) {
+	if root == nil {
+		return
+	}
+	println(root.Val)
+	preoder(root.Left)
+	preoder(root.Right)
+}
 func main() {
-	// arr := []int{-1, -2, -3, -4}
-	// arr := []int{1, 2, 3, -2, 5}
-	// arr := []int{1, 2, 3, 5}
-	arr := []int{1, 2, 3, 4, 5, 6, 7, 8, 10}
-	// println(kadane(arr))
-	println(missingNumber(arr, 10))
+	arr := []interface{}{20, 8, 22, 5, 3, nil, 25, nil, nil, 10, 14}
+	root := treebuidler.BuildTree(arr)
+	preoder(root)
 }
