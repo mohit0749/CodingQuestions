@@ -32,6 +32,7 @@ func missingNumber(arr []int, n int) int {
 	var triangle int = (n * (n + 1)) / 2
 	return triangle - sum
 }
+
 func preoder(root *treebuidler.TreeNode) {
 	if root == nil {
 		return
