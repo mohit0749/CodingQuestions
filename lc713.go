@@ -70,7 +70,3 @@ func main() {
 	k := 100
 	println(numSubarrayProductLessThanK(nums, k))
 }
-
-[1,2,3,4,5]
-[1,2,3,4]
-
