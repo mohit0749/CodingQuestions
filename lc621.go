@@ -4,7 +4,7 @@ import (
 	"container/heap"
 )
 
-// An Item is something we manage in a priority queue.
+// An Segment is something we manage in a priority queue.
 type Item struct {
 	value byte
 	cnt   int

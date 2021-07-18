@@ -57,7 +57,7 @@ func rob(nums []int) int {
 	//if dp[len(nums)-2] > dp[len(nums)-1] {
 	//	maxLoot = dp[len(nums)-2]
 	//} else {
-	//	if flag[len(nums)-1] == true {
+	//	if cnt[len(nums)-1] == true {
 	//		maxLoot = max(dp[len(nums)-1]-elementCnt[len(nums)-1]*nums[0], max(dp[len(nums)-1]-nums[len(nums)-1], dp[len(nums)-2]))
 	//	} else {
 	//		maxLoot = dp[len(nums)-1]

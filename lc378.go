@@ -15,7 +15,7 @@ import "container/heap"
 // to find 5th smallest there are these possiblities (12,13,) so 12 is the 5th smallest
 */
 
-// An Item is something we manage in a priority queue.
+// An Segment is something we manage in a priority queue.
 type Item struct {
 	value      int
 	idxI, idxJ int
